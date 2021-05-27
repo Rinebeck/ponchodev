@@ -20,6 +20,9 @@ import BallotIcon from '@material-ui/icons/BallotOutlined';
 import AppsIcon from '@material-ui/icons/AppsOutlined';
 import ForumIcon from '@material-ui/icons/ForumOutlined';
 import CloseIcon from '@material-ui/icons/Close';
+import ThanksIcon from '@material-ui/icons/SentimentVerySatisfiedOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Avatar from '@material-ui/core/Avatar';
 
 const drawerWidth = 240;
 
@@ -88,6 +91,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  icon: {
+    width: theme.spacing(4),
+    height: theme.spacing(4),
+    marginRight: '10px',
+  }
 }));
 
 export default function MiniDrawer() {
@@ -97,7 +105,8 @@ export default function MiniDrawer() {
   const links = [
     {
       'icon': <HomeIcon style={{ color: '#fff' }}/>,
-      'text': 'Home'
+      'text': 'Home',
+      'link': '',
     },
     {
       'icon': <PersonIcon style={{ color: '#fff' }}/>,
@@ -118,7 +127,17 @@ export default function MiniDrawer() {
     {
       'icon': <ForumIcon style={{ color: '#fff' }}/>,
       'text': 'Contact'
-    }
+    },
+    {
+      'icon': <ThanksIcon style={{ color: '#fff' }}/>,
+      'text': 'Icons by Freepik',
+      'link': 'https://www.freepik.com',
+    },
+    {
+      'icon': <FontAwesomeIcon icon={['fab', 'react']} color="white" size="2x" />,
+      'text': 'Powered by React',
+      'link': '',
+    },
   ]
 
   const handleDrawerOpen = () => {
@@ -150,8 +169,9 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
+          <Avatar alt="poncho" src="/logo192.png" className={classes.icon}/>
           <Typography variant="h6" noWrap>
-            Poncho.dev
+            poncho.dev
           </Typography>
         </Toolbar>
       </AppBar>
