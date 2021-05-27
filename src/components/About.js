@@ -1,17 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
+import { isMobile } from 'react-device-detect'
 
 const useStyles = makeStyles((theme) => ({
     root: {
       backgroundColor: '#fff',
       minHeight: '400px',
-      width: '99.8vw',
+      width: isMobile ? '103.1vw' : '99.8vw',
     },
     title: {
         color: '#454360',
-        margin: '25px 0 0 150px',
+        margin: isMobile ? '25px 0 0 35px' : '25px 0 0 150px',
         position: 'relative',
         fontSize: '36px',
         textAlign: 'left',

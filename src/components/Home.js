@@ -1,18 +1,19 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
-import ReactTypingEffect from 'react-typing-effect';
-import { SocialIcon } from 'react-social-icons';
-import Button from '@material-ui/core/Button';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import Avatar from '@material-ui/core/Avatar'
+import ReactTypingEffect from 'react-typing-effect'
+import { SocialIcon } from 'react-social-icons'
+import Button from '@material-ui/core/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NightSky from './NightSky'
+import { isMobile } from 'react-device-detect'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#353353',
     height: '103vh',
-    width: '99.8vw',
+    width: isMobile ? '103.1vw' : '99.8vw',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
