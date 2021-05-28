@@ -19,10 +19,10 @@ export default function NightSky () {
                     },
                     "move": {
                         "direction": "right",
-                        "speed": 0.2
+                        "speed": 0.00
                     },
                     "size": {
-                        "value": 1
+                        "value": 2.5
                     },
                     "opacity": {
                         "anim": {

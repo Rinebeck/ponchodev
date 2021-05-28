@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column'
   },
   large: {
-    width: theme.spacing(15),
-    height: theme.spacing(15),
+    width: theme.spacing(17),
+    height: theme.spacing(17),
   },
   centerCol: {
     flexBasis: 'unset',

@@ -1,33 +1,45 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import { LinearProgress, Typography } from '@material-ui/core';
+class ProgressBar extends Component {
+  render() {
+    const { classes } = this.props;
+    return (
+    <div className={classes.root}>
+      <Typography>{this.props.title}</Typography>
+      <LinearProgress 
+          value={this.props.value} 
+          variant="determinate" 
+          classes={{
+              root: classes.barRoot,
+              colorPrimary: classes.colorPrimary, 
+              barColorPrimary: classes.barColorPrimary,
+              bar: classes.bar,
+            }}
+      />
+    </div>
+    );
+  }
+}
 
-const BorderLinearProgress = withStyles((theme) => ({
+const styles = ({
   root: {
+    padding: '15px'
+  },
+  barRoot: {
+    height: 10,
+    borderRadius: 5,
+  },
+  bar: {
     height: 10,
     borderRadius: 5,
   },
   colorPrimary: {
-    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+    backgroundColor: '#eee',
   },
-  bar: {
-    borderRadius: 5,
-    backgroundColor: '#1a90ff',
-  },
-}))(LinearProgress);
-
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
+  barColorPrimary: {
+    backgroundColor: props => props.color,
+  }
 });
 
-export default function ProgressBar() {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
-      <BorderLinearProgress variant="determinate" value={50} />
-    </div>
-  );
-}
+export default withStyles(styles)(ProgressBar);
