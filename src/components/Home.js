@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
 
   const handleIconClick = () => {
-    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const classes = useStyles();
@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     
-    <Grid container spacing={3} className={classes.root}>
+    <Grid container id='home' spacing={3} className={classes.root}>
       <NightSky></NightSky>
       <Grid item xs={12} className={classes.centerCol}>
         <Avatar alt="poncho" src="/img/avatar.jpg" className={classes.large} />

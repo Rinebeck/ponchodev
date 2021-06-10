@@ -3,6 +3,7 @@ import DesktopDrawer from './components/DesktopDrawer'
 import MobileDrawer from './components/MobileDrawer'
 import Home from './components/Home'
 import About from './components/About'
+import Services from './components/Services'
 import Hidden from '@material-ui/core/Hidden';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -24,8 +25,9 @@ function App() {
         <MobileDrawer></MobileDrawer>
       </Hidden>
       <main>
-        <Home></Home>
-        <About></About>
+        <Home/>
+        <About/>
+        <Services/>
       </main>
       
     </div>

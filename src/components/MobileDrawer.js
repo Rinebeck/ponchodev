@@ -12,14 +12,8 @@ import Avatar from '@material-ui/core/Avatar';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/HomeOutlined';
-import PersonIcon from '@material-ui/icons/PersonOutlineOutlined';
-import BusinessIcon from '@material-ui/icons/BusinessCenterOutlined';
-import BallotIcon from '@material-ui/icons/BallotOutlined';
-import AppsIcon from '@material-ui/icons/AppsOutlined';
-import ForumIcon from '@material-ui/icons/ForumOutlined';
-import ThanksIcon from '@material-ui/icons/SentimentVerySatisfiedOutlined';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,67 +45,92 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MobileDrawer() {
-  const classes = useStyles();
+function ElevationScroll(props) {
+  const { children } = props;
 
-  const [state, setState] = React.useState({
-    left: false,
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  });
+}
+
+export default function MobileDrawer(props) {
+  const classes = useStyles();
+
+  const [state, setState] = React.useState(false);
+
+  const toggleDrawer = (open) => (event) => {
     if(event){
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
     }
-    
-    setState({ ...state, [anchor]: open });
+    setState(open);
+  };
+
+  const handleClick = (target) => {
+    if(target.includes('https')){
+      window.open(target);
+    } else {
+      document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+    }
+    toggleDrawer(false);
   };
 
   const links = [
     {
-      'icon': <HomeIcon style={{ color: '#fff' }}/>,
+      'icon': <FontAwesomeIcon icon={['fas', 'home']} color="white" size="lg" />,
       'text': 'Home',
-      'link': '',
+      'target': 'home',
     },
     {
-      'icon': <PersonIcon style={{ color: '#fff' }}/>,
-      'text': 'About'
+      'icon': <FontAwesomeIcon icon={['fas', 'user']} color="white" size="lg" />,
+      'text': 'About',
+      'target': 'about',
     },
     {
-      'icon': <BusinessIcon style={{ color: '#fff' }}/>,
-      'text': 'Services'
+      'icon': <FontAwesomeIcon icon={['fas', 'briefcase']} color="white" size="lg" />,
+      'text': 'Services',
+      'target': 'services',
     },
     {
-      'icon': <BallotIcon style={{ color: '#fff' }}/>,
-      'text': 'Experience'
+      'icon': <FontAwesomeIcon icon={['fas', 'graduation-cap']} color="white" size="lg" />,
+      'text': 'Experience',
+      'target': 'experience',
     },
     {
-      'icon': <AppsIcon style={{ color: '#fff' }}/>,
-      'text': 'Works'
+      'icon': <FontAwesomeIcon icon={['fas', 'layer-group']} color="white" size="lg" />,
+      'text': 'Works',
+      'target': 'works',
     },
     {
-      'icon': <ForumIcon style={{ color: '#fff' }}/>,
-      'text': 'Contact'
+      'icon': <FontAwesomeIcon icon={['fas', 'comments']} color="white" size="lg" />,
+      'text': 'Contact',
+      'target': 'contact',
     },
     {
-      'icon': <ThanksIcon style={{ color: '#fff' }}/>,
+      'icon': <FontAwesomeIcon icon={['fas', 'icons']} color="white" size="lg" />,
       'text': 'Icons by Freepik',
-      'link': 'https://www.freepik.com',
+      'target': 'https://www.freepik.com',
     },
     {
-      'icon': <FontAwesomeIcon icon={['fab', 'react']} color="white" style={{ fontSize: '1.5em' }} />,
+      'icon': <FontAwesomeIcon icon={['fab', 'react']} color="white" size="lg" />,
       'text': 'Powered by React',
-      'link': '',
+      'target': 'https://reactjs.org/',
     },
   ]
 
   return (
     <div className={classes.root}>
-        <AppBar position={'fixed'} className={ classes.appBar }>
+      <ElevationScroll {...props}>
+        <AppBar position={'fixed'} className={ classes.appBar } elevation={0}>
             <Toolbar>
                 <IconButton 
-                    onClick={toggleDrawer('left', true)}
+                    onClick={toggleDrawer(true)}
                     edge="start" 
                     className={classes.menuButton}
                     color="inherit"
@@ -125,26 +144,26 @@ export default function MobileDrawer() {
                 </Typography>
             </Toolbar>
         </AppBar>
-        
-        <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)} classes={{ paper: classes.paper }}>
-            <div
-                className={clsx(classes.list, {
-                    [classes.fullList]: true,
-                })}
-                role="presentation"
-                onClick={toggleDrawer('left', false)}
-                onKeyDown={toggleDrawer('left', false)}
-            >
-                <List>
-                    {links.map((item, index) => (
-                        <ListItem button key={index}>
-                            <ListItemIcon>{item.icon}</ListItemIcon>
-                            <ListItemText style={ {color: '#fff'} } primary={item.text} />
-                        </ListItem>
-                    ))}
-                </List>
-            </div>
-        </Drawer>
+      </ElevationScroll>
+      <Drawer open={state} onClose={toggleDrawer(false)} classes={{ paper: classes.paper }}>
+        <div
+            className={clsx(classes.list, {
+                [classes.fullList]: true,
+            })}
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+              {links.map((item, index) => (
+                  <ListItem button key={index} onClick={() => {handleClick(item.target)}}>
+                      <ListItemIcon>{item.icon}</ListItemIcon>
+                      <ListItemText style={ {color: '#fff'} } primary={item.text} />
+                  </ListItem>
+              ))}
+          </List>
+        </div>
+      </Drawer>
     </div>
   );
 }

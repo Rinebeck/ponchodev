@@ -7,28 +7,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/HomeOutlined';
-import PersonIcon from '@material-ui/icons/PersonOutlineOutlined';
-import BusinessIcon from '@material-ui/icons/BusinessCenterOutlined';
-import BallotIcon from '@material-ui/icons/BallotOutlined';
-import AppsIcon from '@material-ui/icons/AppsOutlined';
-import ForumIcon from '@material-ui/icons/ForumOutlined';
 import CloseIcon from '@material-ui/icons/Close';
-import ThanksIcon from '@material-ui/icons/SentimentVerySatisfiedOutlined';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Avatar from '@material-ui/core/Avatar';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // display: 'flex',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -59,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
+    borderRight: 'none',
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
       flexShrink: 0
@@ -102,50 +95,71 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(4),
     height: theme.spacing(4),
     marginRight: '10px',
-  }
+  },
+  item: {
+    marginLeft: 10,
+  },
 }));
 
-export default function DesktopDrawer() {
+function ElevationScroll(props) {
+  const { children } = props;
+
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  });
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  });
+}
+
+export default function DesktopDrawer(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const links = [
     {
-      'icon': <HomeIcon style={{ color: '#fff' }}/>,
+      'icon': <FontAwesomeIcon icon={['fas', 'home']} color="white" size="lg" />,
       'text': 'Home',
-      'link': '',
+      'target': 'home',
     },
     {
-      'icon': <PersonIcon style={{ color: '#fff' }}/>,
-      'text': 'About'
+      'icon': <FontAwesomeIcon icon={['fas', 'user']} color="white" size="lg" />,
+      'text': 'About',
+      'target': 'about',
     },
     {
-      'icon': <BusinessIcon style={{ color: '#fff' }}/>,
-      'text': 'Services'
+      'icon': <FontAwesomeIcon icon={['fas', 'briefcase']} color="white" size="lg" />,
+      'text': 'Services',
+      'target': 'services',
     },
     {
-      'icon': <BallotIcon style={{ color: '#fff' }}/>,
-      'text': 'Experience'
+      'icon': <FontAwesomeIcon icon={['fas', 'graduation-cap']} color="white" size="lg" />,
+      'text': 'Experience',
+      'target': 'experience',
     },
     {
-      'icon': <AppsIcon style={{ color: '#fff' }}/>,
-      'text': 'Works'
+      'icon': <FontAwesomeIcon icon={['fas', 'layer-group']} color="white" size="lg" />,
+      'text': 'Works',
+      'target': 'works',
     },
     {
-      'icon': <ForumIcon style={{ color: '#fff' }}/>,
-      'text': 'Contact'
+      'icon': <FontAwesomeIcon icon={['fas', 'comments']} color="white" size="lg" />,
+      'text': 'Contact',
+      'target': 'contact',
     },
     {
-      'icon': <ThanksIcon style={{ color: '#fff' }}/>,
+      'icon': <FontAwesomeIcon icon={['fas', 'icons']} color="white" size="lg" />,
       'text': 'Icons by Freepik',
-      'link': 'https://www.freepik.com',
+      'target': 'https://www.freepik.com',
     },
     {
-      'icon': <FontAwesomeIcon icon={['fab', 'react']} color="white" size="2x" />,
+      'icon': <FontAwesomeIcon icon={['fab', 'react']} color="white" size="lg" />,
       'text': 'Powered by React',
-      'link': '',
+      'target': 'https://reactjs.org/',
     },
-  ]
+  ];
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -155,10 +169,21 @@ export default function DesktopDrawer() {
     setOpen(false);
   };
 
+  const handleClick = (target) => {
+    if(target.includes('https')){
+      window.open(target);
+    } else {
+      document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+    }
+    handleDrawerClose();
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <ElevationScroll {...props}>
       <AppBar
+        elevation={0}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -182,6 +207,7 @@ export default function DesktopDrawer() {
           </Typography>
         </Toolbar>
       </AppBar>
+      </ElevationScroll>
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
@@ -200,14 +226,13 @@ export default function DesktopDrawer() {
             <CloseIcon style={{ color: '#fff' }}/>
           </IconButton>
         </div>
-        <Divider />
         <List>
-          {links.map((item, index) => (
-            <ListItem button key={index}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          ))}
+            {links.map((item, index) => (
+              <ListItem className={classes.item+' '+item.target} button key={index} onClick={() => {handleClick(item.target)}}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            ))}
         </List>
       </Drawer>
     </div>

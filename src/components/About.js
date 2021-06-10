@@ -60,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(14),
         margin: 'auto',
     },
+    counters: {
+        padding: isMobile ? theme.spacing(0, 8) : theme.spacing(8, 0),
+    },
 }));
 
 export default function About() {
@@ -76,7 +79,7 @@ export default function About() {
 
         <Grid container spacing={3}>
             <Grid item md />
-            <Grid item md={3} sm={12}>
+            <Grid item md={3} xs={12}>
                 <Avatar alt="poncho" src="/img/avatar.jpg" className={classes.large} />
                 <Button
                     variant="contained"
@@ -86,10 +89,10 @@ export default function About() {
                     Download CV
                 </Button>
             </Grid>
-            <Grid item md={7} sm={12}>
+            <Grid item md={7} xs={12}>
                 <Paper className={classes.paper}>
                     <Grid container spacing={3}>
-                        <Grid item md={6} sm={12}>
+                        <Grid item md={6} xs={12}>
                             <Typography variant="body1" gutterBottom>
                                 My name is Alfonso Pedroza, but everybody calls me Poncho. 
                                 I am a web developer from Mexico. 
@@ -98,7 +101,7 @@ export default function About() {
                                 as well as improve your existing website by adding cool new features, fixing bugs or maybe just speeding them up.
                             </Typography>
                         </Grid>
-                        <Grid item md={6} sm={12}>
+                        <Grid item md={6} xs={12}>
                             <ProgressBar title={"PHP"} value={95} color={'#797cb4'}/>
                             <ProgressBar title={"JavaScript"} value={80} color={'#efd819'}/>
                             <ProgressBar title={"MySQL"} value={85} color={'#ff4c60'}/>
@@ -109,7 +112,7 @@ export default function About() {
             <Grid item md />
         </Grid>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className={classes.counters}>
             <Grid item md />
             <Grid item xs={12} sm={6} md={2}>
                 <CounterUp value={31} duration={6} icon={'fire-alt'} text={"Projects completed"} />
