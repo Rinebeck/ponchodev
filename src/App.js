@@ -1,13 +1,12 @@
-import './App.css';
-import DesktopDrawer from './components/DesktopDrawer'
-import MobileDrawer from './components/MobileDrawer'
-import Home from './components/Home'
-import About from './components/About'
-import Services from './components/Services'
-import Hidden from '@material-ui/core/Hidden';
+import './App.css'
+import Navigation from './sections/Navigation'
+import Home from './sections/Home'
+import About from './sections/About'
+import Services from './sections/Services'
+import Experience from './sections/Experience'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { library } from '@fortawesome/fontawesome-svg-core'
 
 // Add all icons for convenience
 library.add(fab, fas);
@@ -17,17 +16,14 @@ function App() {
   return (
     <div className="App">
       
-      <Hidden smDown>
-        <DesktopDrawer></DesktopDrawer>
-      </Hidden>
-
-      <Hidden mdUp>
-        <MobileDrawer></MobileDrawer>
-      </Hidden>
+      <Navigation/>
       <main>
         <Home/>
         <About/>
         <Services/>
+        <Experience/>
+
+        <h1>Something not working? That's expected, this site is still under construction! 👷🏼🚧</h1>
       </main>
       
     </div>

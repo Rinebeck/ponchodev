@@ -6,7 +6,7 @@ import ReactTypingEffect from 'react-typing-effect'
 import { SocialIcon } from 'react-social-icons'
 import Button from '@material-ui/core/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import NightSky from './NightSky'
+import NightSky from '../components/NightSky'
 import { isMobile } from 'react-device-detect'
 
 const useStyles = makeStyles((theme) => ({

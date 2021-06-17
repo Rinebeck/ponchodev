@@ -5,10 +5,10 @@ import { isMobile } from 'react-device-detect'
 import Avatar from '@material-ui/core/Avatar'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import ProgressBar from './ProgressBar'
+import ProgressBar from '../components/ProgressBar'
 import Button from '@material-ui/core/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CounterUp from './CounterUp';
+import CounterUp from '../components/CounterUp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
