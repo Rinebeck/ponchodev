@@ -1,4 +1,4 @@
-import CountUp from 'react-countup';
+import CountUp from 'react-countup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'

@@ -1,40 +1,21 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import { isMobile } from 'react-device-detect'
 import Avatar from '@material-ui/core/Avatar'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import ProgressBar from '../components/ProgressBar'
 import Button from '@material-ui/core/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CounterUp from '../components/CounterUp';
+import CounterUp from '../components/CounterUp'
+import SectionTitle from "../components/SectionTitle"
 
 const useStyles = makeStyles((theme) => ({
     root: {
       backgroundColor: '#fff',
       minHeight: '400px',
-      width: isMobile ? '103.1vw' : '99.8vw',
-      padding: '50px 0',
-    },
-    title: {
-        color: '#454360',
-        position: 'relative',
-        fontSize: '36px',
-        textAlign: 'left',
-        [theme.breakpoints.down('md')]: {
-            textAlign: 'center',
-        },
-        '&::before': {
-            content: "''",
-            backgroundImage: 'url(/img/dots-bg.svg)',
-            display: 'block',
-            height: '37px',
-            left: '-14px',
-            top: '-14px',
-            position: 'absolute',
-            width: '37px',
-        },
+      width: '100vw',
+      padding: '25px 0',
     },
     paper: {
         padding: theme.spacing(2),
@@ -61,7 +42,16 @@ const useStyles = makeStyles((theme) => ({
         margin: 'auto',
     },
     counters: {
-        padding: isMobile ? theme.spacing(0, 8) : theme.spacing(8, 0),
+        padding: '0 50px',
+        display: 'flex',
+        justifyContent: 'space-around',
+        '& > div:not(:last-child)': {
+            marginBottom: 25,
+        },
+        [theme.breakpoints.down('sm')]: {
+            alignItems: 'center',
+            flexDirection: 'column',
+        }
     },
 }));
 
@@ -70,12 +60,7 @@ export default function About() {
 
     return (
     <div id="about" className={classes.root}>
-        <Grid container spacing={3}>
-            <Grid item md />
-            <Grid item md={10} xs={12}>
-                <h1 className={classes.title}>About me</h1>
-            </Grid>
-        </Grid>
+       <SectionTitle title="About me" />
 
         <Grid container spacing={3}>
             <Grid item md />
@@ -112,10 +97,10 @@ export default function About() {
             <Grid item md />
         </Grid>
 
-        <Grid container spacing={2} className={classes.counters}>
+        <Grid container className={classes.counters}>
             <Grid item md />
             <Grid item xs={12} sm={6} md={2}>
-                <CounterUp value={31} duration={6} icon={'fire-alt'} text={"Projects completed"} />
+                <CounterUp value={31} duration={6} icon={'plus'} text={"Projects worked"} />
             </Grid>
             <Grid item xs={12} sm={6} md={2}>
                 <CounterUp value={5475} duration={4.5} icon={'mug-hot'} text={"Cups of coffee"} />

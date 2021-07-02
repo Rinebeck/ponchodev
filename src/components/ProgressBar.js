@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { LinearProgress, Typography } from '@material-ui/core';
+import React, { Component } from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import { LinearProgress, Typography } from '@material-ui/core'
 class ProgressBar extends Component {
   render() {
     const { classes } = this.props;

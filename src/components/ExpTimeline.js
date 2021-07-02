@@ -40,24 +40,32 @@ export default function BasicTimeline({type, items}) {
 
   return (
     <Timeline>
-        <Typography variant="h5">{type}</Typography>
-        {
-          items.map((item, i) => (
-            <TimelineItem className={classes.item}>
-            <TimelineSeparator>
-              {item.icon}
-              { i + 1 < lenght ? <TimelineConnector className={classes.connector} /> : '' }
-            </TimelineSeparator>
-            <TimelineContent className={classes.content}>
-              <Typography>{item.title}</Typography>
-              <Typography color="textSecondary" className={classes.link} onClick={() => {handleClick(item.link)}}>
-                {item.text}
-              </Typography>
-              <Typography color="textSecondary">{item.time}</Typography>
-            </TimelineContent>
-          </TimelineItem>
-          ))
-        }
+      <Typography variant="h5">{type}</Typography>
+      {items.map((item, i) => (
+        <TimelineItem className={classes.item} key={i}>
+          <TimelineSeparator>
+            {item.icon}
+            {i + 1 < lenght ? (
+              <TimelineConnector className={classes.connector} />
+            ) : (
+              ""
+            )}
+          </TimelineSeparator>
+          <TimelineContent className={classes.content}>
+            <Typography>{item.title}</Typography>
+            <Typography
+              color="textSecondary"
+              className={classes.link}
+              onClick={() => {
+                handleClick(item.link);
+              }}
+            >
+              {item.text}
+            </Typography>
+            <Typography color="textSecondary">{item.time}</Typography>
+          </TimelineContent>
+        </TimelineItem>
+      ))}
     </Timeline>
   );
 }
