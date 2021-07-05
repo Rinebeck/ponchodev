@@ -124,10 +124,7 @@ export default function Home() {
           size="large"
           className={classes.button}
           onClick={() => {
-            window.open(
-              // TODO: Change to scroll to contact form once it exists
-              "mailto:e.alfonsopedroza58@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to get more info about..."
-            );
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
           }}
         >
           Hire me!

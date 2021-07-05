@@ -5,6 +5,7 @@ import About from "./sections/About"
 import Services from "./sections/Services"
 import Experience from "./sections/Experience"
 import Works from './sections/Works';
+import Contact from './sections/Contact';
 import { fab } from "@fortawesome/free-brands-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
 import { library } from "@fortawesome/fontawesome-svg-core"
@@ -35,6 +36,7 @@ function App() {
           <Services />
           <Experience />
           <Works />
+          <Contact />
 
           <h1>
             Something not working? That's expected, this site is still under

@@ -24,10 +24,8 @@ export default function CenteredGrid() {
 
   const handleHereClick = () => {
     window.open(
-      // TODO: Change to scroll to contact form once it exists
       "mailto:e.alfonsopedroza58@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to know if you can help me with..."
       );
-      //document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
