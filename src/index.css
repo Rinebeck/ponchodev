@@ -50,6 +50,10 @@ div#root{
   border: none
 }
 
+.project-card img.MuiAvatar-img {
+  object-fit: contain;
+}
+
 @media screen and (max-width: 400px) {
   .card-container {
     padding: 15px 45px !important;

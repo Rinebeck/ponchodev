@@ -12,6 +12,8 @@ const useStyles = makeStyles(() => ({
   root: {
     maxWidth: 343,
     borderRadius: 20,
+    height: '100%',
+    cursor: 'pointer',
   },
   content: {
     padding: 24,
@@ -23,8 +25,16 @@ export default function ProjectCard(props) {
   const styles = useN03TextInfoContentStyles();
   const shadowStyles = useLightTopShadowStyles();
   const cardStyles = useStyles();
+
+  const handleClick = () => {
+    return props.link && window.open(props.link);
+  }
+
   return (
-    <Card className={cx(cardStyles.root, shadowStyles.root)}>
+    <Card
+      className={cx(cardStyles.root, shadowStyles.root, "project-card")}
+      onClick={handleClick}
+    >
       <BrandCardHeader image={image} extra={extra} />
       <CardContent className={cardStyles.content}>
         <TextInfoContent
