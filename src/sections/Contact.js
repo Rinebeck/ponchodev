@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "400px",
     flexGrow: 1,
+    marginBottom: '20px',
   },
   textArea: {
     height: "300px",

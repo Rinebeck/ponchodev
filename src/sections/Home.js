@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
 import Avatar from "@material-ui/core/Avatar"
+import Box from "@material-ui/core/Box"
 import ReactTypingEffect from "react-typing-effect"
 import { SocialIcon } from "react-social-icons"
 import Button from "@material-ui/core/Button"
@@ -47,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     bottom: "-12px",
   },
+  rounded: {
+    borderRadius: '50%',
+  },
 }));
 
 export default function Home() {
@@ -67,7 +71,13 @@ export default function Home() {
     <Grid container id="home" className={classes.root}>
       <NightSky></NightSky>
       <Grid item xs={12} className={classes.centerCol}>
-        <Avatar alt="poncho" src="/img/avatar.jpg" className={classes.large} />
+        <Box boxShadow={7} className={classes.rounded}>
+          <Avatar
+            alt="poncho"
+            src="/img/avatar.jpg"
+            className={classes.large}
+          />
+        </Box>
       </Grid>
       <Grid item xs={12} className={classes.centerCol}>
         <h1>
@@ -124,7 +134,9 @@ export default function Home() {
           size="large"
           className={classes.button}
           onClick={() => {
-            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" });
           }}
         >
           Hire me!
