@@ -43,6 +43,11 @@ div#root {
     transform: translatey(0px);
   }
 }
+
+.full-height, .full-height > div, .card-container > div {
+  height: 100%;
+}
+
 #tsparticles {
   position: absolute !important;
   left: 0;

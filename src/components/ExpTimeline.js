@@ -6,6 +6,7 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector'
 import TimelineContent from '@material-ui/lab/TimelineContent'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import Slide from "react-reveal/Slide"
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -44,7 +45,9 @@ export default function BasicTimeline({type, items}) {
       {items.map((item, i) => (
         <TimelineItem className={classes.item} key={i}>
           <TimelineSeparator>
-            {item.icon}
+            <Slide bottom>
+              {item.icon}
+            </Slide>
             {i + 1 < lenght ? (
               <TimelineConnector className={classes.connector} />
             ) : (

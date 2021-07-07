@@ -1,5 +1,6 @@
 import Grid from "@material-ui/core/Grid"
 import { makeStyles } from "@material-ui/core/styles"
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,9 @@ export default function SectionTitle({ title }) {
     <Grid container spacing={3}>
       <Grid item md />
       <Grid item md={10} xs={12}>
-        <h1 className={classes.title}>{title}</h1>
+        <Fade bottom>
+          <h1 className={classes.title}>{title}</h1>
+        </Fade>
       </Grid>
     </Grid>
   );

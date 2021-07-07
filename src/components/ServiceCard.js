@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
+import Fade from "react-reveal/Fade"
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -11,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     transition: 'bottom .3s, box-shadow .3s',
     borderRadius: '15px',
+  },
+  fullHeight: {
+    height: '100%',
   },
   lightFont: {
     color: '#f8f9fa',
@@ -48,14 +52,29 @@ export default function ServiceCard({background, color, title, text, img}) {
 }
 
   return (
-    <Paper className={classes.paper} style={{background: background, bottom: bottom}} elevation={depth} onMouseOver={elevate} onMouseOut={ground}>
+    <Fade clear style={{height: '100%'}}>
+      <Paper
+        className={classes.paper}
+        style={{ background: background, bottom: bottom }}
+        elevation={depth}
+        onMouseOver={elevate}
+        onMouseOut={ground}
+      >
         <img className={classes.img} src={img} alt={title} />
-        <Typography variant="h5" className={classes.title} style={{color: color}}>
-           {title}
+        <Typography
+          variant="h5"
+          className={classes.title}
+          style={{ color: color }}
+        >
+          {title}
         </Typography>
-        <Typography variant="body1" className={classes.text} style={{color: color}}>
-            {text}
+        <Typography
+          variant="body1"
+          className={classes.text}
+          style={{ color: color }}
+        >
+          {text}
         </Typography>
-    </Paper>
-  );
-}
+      </Paper>
+    </Fade>
+  );}

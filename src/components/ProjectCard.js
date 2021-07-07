@@ -7,6 +7,7 @@ import BrandCardHeader from "@mui-treasury/components/cardHeader/brand"
 import TextInfoContent from "@mui-treasury/components/content/textInfo"
 import { useN03TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n03"
 import { useLightTopShadowStyles } from "@mui-treasury/styles/shadow/lightTop"
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,19 +32,23 @@ export default function ProjectCard(props) {
   }
 
   return (
-    <Card
-      className={cx(cardStyles.root, shadowStyles.root, "project-card")}
-      onClick={handleClick}
-    >
-      <BrandCardHeader image={image} extra={extra} />
-      <CardContent className={cardStyles.content}>
-        <TextInfoContent
-          classes={styles}
-          overline={overline}
-          heading={heading}
-          body={body}
-        />
-      </CardContent>
-    </Card>
+    <div className="full-height">
+      <Fade clear>
+        <Card
+          className={cx(cardStyles.root, shadowStyles.root, "project-card")}
+          onClick={handleClick}
+        >
+          <BrandCardHeader image={image} extra={extra} />
+          <CardContent className={cardStyles.content}>
+            <TextInfoContent
+              classes={styles}
+              overline={overline}
+              heading={heading}
+              body={body}
+            />
+          </CardContent>
+        </Card>
+      </Fade>
+    </div>
   );
 }

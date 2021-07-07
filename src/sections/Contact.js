@@ -5,6 +5,7 @@ import SectionTitle from "../components/SectionTitle"
 import { useForm } from "react-hook-form"
 import Loader from "../components/Loader"
 import Button from "@material-ui/core/Button"
+import Fade from "react-reveal/Fade"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,7 +112,11 @@ export default function Contact() {
         <Grid item md={2}>
           <h3>
             Don't like forms?{" "}
-            <a href="#!" className={classes.sendEmail} onClick={handleSendMeClick}>
+            <a
+              href="#!"
+              className={classes.sendEmail}
+              onClick={handleSendMeClick}
+            >
               Send me an email. 👋
             </a>
           </h3>
@@ -125,10 +130,12 @@ export default function Contact() {
           >
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
-                <input
-                  placeholder="Your name"
-                  {...register("name", { required: "Name is required" })}
-                />
+                <Fade top>
+                  <input
+                    placeholder="Your name"
+                    {...register("name", { required: "Name is required" })}
+                  />
+                </Fade>
                 {errors.name ? (
                   <p className="input-error">{errors.name?.message}</p>
                 ) : (
@@ -136,16 +143,18 @@ export default function Contact() {
                 )}
               </Grid>
               <Grid item xs={12} md={6}>
-                <input
-                  placeholder="Email address"
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /\S+@\S+\.\S+/,
-                      message: "Please provde a valid email address",
-                    },
-                  })}
-                />
+                <Fade right>
+                  <input
+                    placeholder="Email address"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /\S+@\S+\.\S+/,
+                        message: "Please provde a valid email address",
+                      },
+                    })}
+                  />
+                </Fade>
                 {errors.email ? (
                   <p className="input-error">{errors.email?.message}</p>
                 ) : (
@@ -153,12 +162,14 @@ export default function Contact() {
                 )}
               </Grid>
               <Grid item xs={12}>
-                <input
-                  placeholder="Subject"
-                  {...register("subject", {
-                    required: "Subject is required",
-                  })}
-                />
+                <Fade left>
+                  <input
+                    placeholder="Subject"
+                    {...register("subject", {
+                      required: "Subject is required",
+                    })}
+                  />
+                </Fade>
                 {errors.subject ? (
                   <p className="input-error">{errors.subject?.message}</p>
                 ) : (
@@ -167,14 +178,16 @@ export default function Contact() {
               </Grid>
               <Grid item xs={12}>
                 <div className={classes.areaWrapper}>
-                  <textarea
-                    rows={7}
-                    placeholder="Message"
-                    className={classes.textArea}
-                    {...register("message", {
-                      required: "Message is required",
-                    })}
-                  />
+                  <Fade bottom>
+                    <textarea
+                      rows={7}
+                      placeholder="Message"
+                      className={classes.textArea}
+                      {...register("message", {
+                        required: "Message is required",
+                      })}
+                    />
+                  </Fade>
                   {errors.message ? (
                     <p className="input-error">{errors.message?.message}</p>
                   ) : (
@@ -183,17 +196,22 @@ export default function Contact() {
                 </div>
               </Grid>
               <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  className={classes.button}
-                  type="submit"
-                >
-                  Send
-                </Button>
+                <Fade bottom>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    className={classes.button}
+                    type="submit"
+                  >
+                    Send
+                  </Button>
+                </Fade>
               </Grid>
               <Grid item xs={12}>
-                <ResponseMessage body={responseMessage} success={responseStatus} />
+                <ResponseMessage
+                  body={responseMessage}
+                  success={responseStatus}
+                />
               </Grid>
             </Grid>
           </form>
