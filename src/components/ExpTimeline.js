@@ -27,17 +27,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function BasicTimeline({type, items}) {
-  
+export default function ExpTimeline({ type, items }) {
   const classes = useStyles();
 
   const lenght = items.length;
 
   const handleClick = (link) => {
-    if(link) {
+    if (link) {
       window.open(link);
     }
-  }
+  };
 
   return (
     <Timeline>
@@ -45,9 +44,7 @@ export default function BasicTimeline({type, items}) {
       {items.map((item, i) => (
         <TimelineItem className={classes.item} key={i}>
           <TimelineSeparator>
-            <Slide bottom>
-              {item.icon}
-            </Slide>
+            <Slide bottom>{item.icon}</Slide>
             {i + 1 < lenght ? (
               <TimelineConnector className={classes.connector} />
             ) : (

@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     textDecoration: "none",
   },
+  question: {
+    padding: '0 15px',
+  }
 }));
 
 function ResponseMessage({ body, success }) {
@@ -110,7 +113,7 @@ export default function Contact() {
         <Grid item md />
         <Grid item md />
         <Grid item md={2}>
-          <h3>
+          <h3 className={classes.question}>
             Don't like forms?{" "}
             <a
               href="#!"

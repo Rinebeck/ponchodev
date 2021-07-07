@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles"
-import { SocialIcon } from "react-social-icons";
+import { SocialIcon } from "react-social-icons"
+import Hidden from '@material-ui/core/Hidden'
 
 const useStyles = makeStyles(() => ({
   footer: {
@@ -20,7 +21,9 @@ export default function Footer() {
     const classes = useStyles();
     return (
       <div className={classes.footer}>
-        <div>Thanks for coming!</div>
+        <Hidden smDown>
+          <div>Thanks for coming!</div>
+        </Hidden>
         <div>
           {" "}
           <SocialIcon
@@ -49,7 +52,9 @@ export default function Footer() {
             fgColor={"#1d769b"}
           />
         </div>
-        <div>{new Date().getFullYear()}</div>
+        <Hidden smDown>
+          <div>{new Date().getFullYear()}</div>
+        </Hidden>
       </div>
     ); 
 }

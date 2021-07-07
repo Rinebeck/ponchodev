@@ -13,11 +13,6 @@ const useStyles = makeStyles((theme) => ({
   cardRow: {
     marginTop: "5em",
   },
-  item: {
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "3em",
-    },
-  },
 }));
 
 export default function Works() {
@@ -30,7 +25,7 @@ export default function Works() {
         <FontAwesomeIcon icon={["fab", "react"]} color="secondary" size="2x" />
       ),
       content: (
-        <Grid container>
+        <Grid container spacing={3}>
           <Grid item md>
             <ProjectCard
               body="Interior design preview tool, with lots of variants and cool stuff! Has it's own app (unplublished per client request)"
@@ -41,7 +36,7 @@ export default function Works() {
               link="https://quarelladesign.com/"
             />
           </Grid>
-          <Grid item md className={classes.item}>
+          <Grid item md>
             <ProjectCard
               body="Yes! this very site! You can find info about me, I try to update the site regularly."
               heading="poncho.dev"
@@ -50,7 +45,7 @@ export default function Works() {
               extra="June, 2021 - Ongoing"
             />
           </Grid>
-          <Grid item md className={classes.item}>
+          <Grid item md>
             <ProjectCard
               body="It's a secret to everybody... Can't tell yet!"
               heading="Secret project!"
@@ -73,7 +68,7 @@ export default function Works() {
       ),
       content: (
         <>
-          <Grid container>
+          <Grid container spacing={3}>
             <Grid item md>
               <ProjectCard
                 body="Main site for one of the bigest checken selling companys in Mexico."
@@ -84,7 +79,7 @@ export default function Works() {
                 link="https://nutrypollo.com/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Main site for a growing Marketing Agency"
                 overline="Click Clack"
@@ -94,7 +89,7 @@ export default function Works() {
                 link="https://clickclack.mx/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Marketing site for a big Mexican industrial transportation company."
                 overline="Mexpur"
@@ -106,7 +101,7 @@ export default function Works() {
             </Grid>
           </Grid>
           <Grid container className={classes.cardRow}>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Information site for a construction company's new urban project."
                 overline="Cadaqués Residencial"
@@ -116,7 +111,7 @@ export default function Works() {
                 link="https://cadaquesresidencial.com/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="E-commerce platform for pedagogical materials and other products to help kids to learn various topics."
                 overline="Mundidactico"
@@ -126,7 +121,7 @@ export default function Works() {
                 link="https://mundidactico.com.mx/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Completely customized web blog full of usefull health tips and other nutrition related topics."
                 overline="Lebasi"
@@ -138,7 +133,7 @@ export default function Works() {
             </Grid>
           </Grid>
           <Grid container className={classes.cardRow}>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Another completely customized web blog, this time with finantial articles for both companies and employees."
                 overline="Lebasi"
@@ -148,7 +143,7 @@ export default function Works() {
                 link="https://evolucionenlosnegocios.com/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="E-learning platform with tons of paid courses of finance, focused on companies and entrepreneurs."
                 overline="Morgan Consultores"
@@ -158,7 +153,7 @@ export default function Works() {
                 link="https://morganonline.com.mx/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Fancy dresses booking site, not in production yet due pandemic related issues, will soon become available! (you can try the demos site)"
                 overline="Olivia Vestidos"
@@ -170,7 +165,7 @@ export default function Works() {
             </Grid>
           </Grid>
           <Grid container className={classes.cardRow}>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="E-learning platform for one of the most popular Mexican high schools in the country."
                 overline="Conalep"
@@ -191,7 +186,7 @@ export default function Works() {
       ),
       content: (
         <>
-          <Grid container>
+          <Grid container spacing={3}>
             <Grid item md>
               <ProjectCard
                 body="Job offering site for the other big chicken selling company in Mexico. (You must sign up to check the entire site.)"
@@ -202,7 +197,7 @@ export default function Works() {
                 link="http://bdet.sabro.com.mx:8091/bolsa_de_trabajo/web/index.php"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="Made major contributions to this E-commerce platform, as well as design and build around 80% of the 
                 mobile-friendly version. One of the biggest Mexican tech-selling companies."
@@ -213,7 +208,7 @@ export default function Works() {
                 link="https://www.zegucom.com.mx/"
               />
             </Grid>
-            <Grid item md className={classes.item}>
+            <Grid item md>
               <ProjectCard
                 body="API for securely access Zegucom stock and display it on your site, also support for making purchases and other cool features. Contributed around 60%."
                 overline="Zegucom Computo"

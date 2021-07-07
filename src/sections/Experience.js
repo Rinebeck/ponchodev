@@ -6,20 +6,20 @@ import Paper from '@material-ui/core/Paper'
 import SectionTitle from "../components/SectionTitle"
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        backgroundColor: '#fff',
-        minHeight: '400px',
-        width: '100vw',
-        padding: '50px 0',
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        height: '100%',
-        position: 'relative',
-        transition: 'bottom .3s, box-shadow .3s',
-        borderRadius: '15px',
-    },
+  root: {
+    backgroundColor: "#fff",
+    minHeight: "400px",
+    width: "100vw",
+    padding: "50px 0",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    height: "100%",
+    position: "relative",
+    transition: "bottom .3s, box-shadow .3s",
+    borderRadius: "15px",
+  },
 }));
 
 
@@ -94,12 +94,12 @@ export default function Experience() {
         <SectionTitle title="Experience"></SectionTitle>
         <Grid container spacing={3}>
           <Grid item md />
-          <Grid item md={4} xs={12}>
+          <Grid item md={4} xs={12} className="card-container">
             <Paper className={classes.paper} elevation={4}>
               <ExpTimeline type="Job Positions" items={jobs} />
             </Paper>
           </Grid>
-          <Grid item md={4} xs={12}>
+          <Grid item md={4} xs={12} className="card-container">
             <Paper className={classes.paper} elevation={4}>
               <ExpTimeline type="Freelance Projects" items={freelance} />
             </Paper>

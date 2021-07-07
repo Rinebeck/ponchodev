@@ -131,8 +131,15 @@ div#root {
   border-color: #f5c6cb;
 }
 
+/* Mobile only */
 @media screen and (max-width: 400px) {
+  
+}
+
+/* Mobile and tablet */
+@media screen and (max-width: 800px) {
   .card-container {
     padding: 15px 45px !important;
+    margin-bottom: 40px !important;
   }
 }
