@@ -131,11 +131,6 @@ div#root {
   border-color: #f5c6cb;
 }
 
-/* Mobile only */
-@media screen and (max-width: 400px) {
-  
-}
-
 /* Mobile and tablet */
 @media screen and (max-width: 800px) {
   .card-container {

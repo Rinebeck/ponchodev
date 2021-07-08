@@ -4,6 +4,8 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './index.css'
 
+require("dotenv").config();
+
 ReactDOM.render(
     <App />,
   document.getElementById('root')

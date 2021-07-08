@@ -50,26 +50,32 @@ function ResponseMessage({ body, success }) {
 }
 
 export default function Contact() {
+  
+  const classes = useStyles();
+
+  const formId = "contact-form";
 
   const [showLoader, setShowLoader] = React.useState(false);
+  const [isDisabled, setIsDisabled] = React.useState(false);
   const [responseMessage, setResponseMessage] = React.useState();
   const [responseStatus, setResponseStatus] = React.useState();
 
-  const classes = useStyles();
+  const resetForm = () => {
+     document.getElementById(formId).reset();
+  }
 
   const handleResponse = (response) => {
     setShowLoader(false);
     setResponseStatus(response.result);
     setResponseMessage(response.message);
+    setIsDisabled(true);
+    resetForm();
   }
 
   const sendMail = (data) => {
     setShowLoader(true);
     let formdata = new FormData();
-    formdata.append(
-      "api_token",
-      "be493c1eb7e1d8c9329c09094c49abcecfa5677d5533fc64cf3a119608152f9e"
-    );
+    formdata.append("api_token", process.env.REACT_APP_MAIL_API_KEY);
     formdata.append("name", data.name);
     formdata.append("email", data.email);
     formdata.append("subject", data.subject);
@@ -81,7 +87,7 @@ export default function Contact() {
       redirect: "follow",
     };
 
-    fetch("https://quarellapi.herokuapp.com/mail/send", requestOptions)
+    fetch(process.env.REACT_APP_MAIL_API_URL+"mail/send", requestOptions)
       .then((response) => response.json())
       .then((result) => handleResponse(result))
       .catch((error) => console.log("error", error));
@@ -127,6 +133,7 @@ export default function Contact() {
         <Grid item md />
         <Grid item md={6} xs={12}>
           <form
+            id={formId}
             autoComplete="off"
             className="p-form"
             onSubmit={handleSubmit(onSubmit)}
@@ -183,7 +190,7 @@ export default function Contact() {
                 <div className={classes.areaWrapper}>
                   <Fade bottom>
                     <textarea
-                      rows={7}
+                      rows={5}
                       placeholder="Message"
                       className={classes.textArea}
                       {...register("message", {
@@ -205,6 +212,7 @@ export default function Contact() {
                     size="large"
                     className={classes.button}
                     type="submit"
+                    disabled={isDisabled}
                   >
                     Send
                   </Button>
