@@ -7,6 +7,7 @@ import TimelineContent from '@material-ui/lab/TimelineContent'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Slide from "react-reveal/Slide"
+import clsx from 'clsx'
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -42,7 +43,7 @@ export default function ExpTimeline({ type, items }) {
     <Timeline>
       <Typography variant="h5">{type}</Typography>
       {items.map((item, i) => (
-        <TimelineItem className={classes.item} key={i}>
+        <TimelineItem className={clsx(classes.item, item.customClass ?? "")} key={i}>
           <TimelineSeparator>
             <Slide bottom>{item.icon}</Slide>
             {i + 1 < lenght ? (

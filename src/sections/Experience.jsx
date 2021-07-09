@@ -77,6 +77,7 @@ export default function Experience() {
             title: 'PHP Yii2 Application',
             text: 'SistemaGG (unreleased)',
             link: '',
+            customClass: 'php-icon',
             time: '2020',
             icon:  <FontAwesomeIcon icon={['fab', 'php']} color="#ff4c60" size="2x" />
         },

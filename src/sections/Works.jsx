@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "400px",
   },
   cardRow: {
-    marginTop: "5em",
+    marginTop: "1em",
   },
 }));
 
@@ -100,7 +100,7 @@ export default function Works() {
               />
             </Grid>
           </Grid>
-          <Grid container className={classes.cardRow}>
+          <Grid container className={classes.cardRow} spacing={3}>
             <Grid item md>
               <ProjectCard
                 body="Information site for a construction company's new urban project."
@@ -132,7 +132,7 @@ export default function Works() {
               />
             </Grid>
           </Grid>
-          <Grid container className={classes.cardRow}>
+          <Grid container className={classes.cardRow} spacing={3}>
             <Grid item md>
               <ProjectCard
                 body="Another completely customized web blog, this time with finantial articles for both companies and employees."
@@ -164,7 +164,7 @@ export default function Works() {
               />
             </Grid>
           </Grid>
-          <Grid container className={classes.cardRow}>
+          <Grid container className={classes.cardRow} spacing={3}>
             <Grid item md>
               <ProjectCard
                 body="E-learning platform for one of the most popular Mexican high schools in the country."

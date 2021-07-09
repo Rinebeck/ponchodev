@@ -131,6 +131,10 @@ div#root {
   border-color: #f5c6cb;
 }
 
+.php-icon {
+  right: 5px;
+}
+
 /* Mobile and tablet */
 @media screen and (max-width: 800px) {
   .card-container {
