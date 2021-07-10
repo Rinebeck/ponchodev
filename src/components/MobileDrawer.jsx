@@ -76,7 +76,7 @@ export default function MobileDrawer(props) {
     if(target.includes('https')){
       window.open(target);
     } else {
-      document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(target)?.scrollIntoView(true);
     }
     toggleDrawer(false);
   };
