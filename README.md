@@ -1,8 +1,8 @@
-# poncho.dev
+# ponchop.dev
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Live site: https://ponchodev.herokuapp.com/
+Live site: https://ponchopdev.com/
 
 Feel free to fork or download and modify it for your purposes, I don't mind.
 
