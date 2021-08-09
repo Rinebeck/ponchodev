@@ -95,7 +95,7 @@ export default function Contact() {
 
   const handleSendMeClick = () => {
     window.open(
-      "mailto:e.alfonsopedroza58@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to get more info about..."
+      "mailto:ponchopdev@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to get more info about..."
     );
   }
 

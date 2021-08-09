@@ -24,8 +24,8 @@ export default function CenteredGrid() {
 
   const handleHereClick = () => {
     window.open(
-      "mailto:e.alfonsopedroza58@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to know if you can help me with..."
-      );
+      "mailto:ponchopdev@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to know if you can help me with..."
+    );
   };
 
   return (
