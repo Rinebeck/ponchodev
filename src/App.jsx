@@ -1,12 +1,12 @@
-import "./App.css"
-import Navigation from "./components/Navigation"
-import Home from "./sections/Home"
-import About from "./sections/About"
-import Services from "./sections/Services"
-import Experience from "./sections/Experience"
-import Works from './sections/Works';
-import Contact from './sections/Contact';
-import Footer from './components/Footer';
+import "App.css"
+import Navigation from "components/Navigation"
+import Home from "sections/Home"
+import About from "sections/About"
+import Services from "sections/Services"
+import Experience from "sections/Experience"
+import Works from 'sections/Works';
+import Contact from 'sections/Contact';
+import Footer from 'components/Footer';
 import { fab } from "@fortawesome/free-brands-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
 import { library } from "@fortawesome/fontawesome-svg-core"

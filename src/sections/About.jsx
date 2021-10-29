@@ -4,11 +4,11 @@ import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import ProgressBar from '../components/ProgressBar'
+import ProgressBar from 'components/ProgressBar'
 import Button from '@material-ui/core/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CounterUp from '../components/CounterUp'
-import SectionTitle from "../components/SectionTitle"
+import CounterUp from 'components/CounterUp'
+import SectionTitle from "components/SectionTitle"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -125,7 +125,7 @@ export default function About() {
           <Grid item md />
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={31}
+              value={30}
               duration={6}
               icon={"plus"}
               text={"Projects worked"}
@@ -133,7 +133,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={5475}
+              value={5892}
               duration={4.5}
               icon={"mug-hot"}
               text={"Cups of coffee"}
@@ -141,7 +141,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={70189}
+              value={74325}
               duration={4}
               icon={"laptop-code"}
               text={"Lines of code"}
@@ -149,7 +149,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={537}
+              value={637}
               duration={4.8}
               icon={"bug"}
               text={"Bugs fixed"}

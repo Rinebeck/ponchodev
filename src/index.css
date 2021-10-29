@@ -136,6 +136,10 @@ div#root {
   right: 5px;
 }
 
+div.MuiGrid-container.card-row {
+  margin-top: 1em;
+}
+
 /* Mobile and tablet */
 @media screen and (max-width: 800px) {
   .card-container {

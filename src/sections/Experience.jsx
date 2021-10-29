@@ -1,9 +1,9 @@
-import ExpTimeline from "../components/ExpTimeline"
+import ExpTimeline from "components/ExpTimeline"
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Paper from '@material-ui/core/Paper'
-import SectionTitle from "../components/SectionTitle"
+import SectionTitle from "components/SectionTitle"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,7 +82,7 @@ export default function Experience() {
             icon:  <FontAwesomeIcon icon={['fab', 'php']} color="#ff4c60" size="2x" />
         },
         {
-            title: 'React App',
+            title: 'React Application',
             text: 'Quarella Design',
             link: 'https://quarelladesign.com/',
             time: '2021',

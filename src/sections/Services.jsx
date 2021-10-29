@@ -2,8 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import ServiceCard from '../components/ServiceCard'
-import SectionTitle from '../components/SectionTitle'
+import ServiceCard from 'components/ServiceCard'
+import SectionTitle from 'components/SectionTitle'
 
 const useStyles = makeStyles((theme) => ({
   root: {

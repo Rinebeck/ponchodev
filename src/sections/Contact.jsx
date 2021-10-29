@@ -1,17 +1,17 @@
-import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import Grid from "@material-ui/core/Grid"
-import SectionTitle from "../components/SectionTitle"
-import { useForm } from "react-hook-form"
-import Loader from "../components/Loader"
-import Button from "@material-ui/core/Button"
-import Fade from "react-reveal/Fade"
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import SectionTitle from "../components/SectionTitle";
+import { useForm } from "react-hook-form";
+import Loader from "../components/Loader";
+import Button from "@material-ui/core/Button";
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "400px",
     flexGrow: 1,
-    marginBottom: '20px',
+    marginBottom: "20px",
   },
   textArea: {
     height: "300px",
@@ -40,20 +40,22 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   question: {
-    padding: '0 15px',
-  }
+    padding: "0 15px",
+  },
 }));
 
 function ResponseMessage({ body, success }) {
-  const className = success === true ? 'success message' : 'error message';
+  const className = success === true ? "success message" : "error message";
   return body ? <div className={className}>{body}</div> : <></>;
 }
 
 export default function Contact() {
-  
   const classes = useStyles();
 
   const formId = "contact-form";
+
+  const bolbyTemplateUrl =
+    "https://jthemes.net/themes/html/bolby/demo/index.html";
 
   const [showLoader, setShowLoader] = React.useState(false);
   const [isDisabled, setIsDisabled] = React.useState(false);
@@ -61,8 +63,8 @@ export default function Contact() {
   const [responseStatus, setResponseStatus] = React.useState();
 
   const resetForm = () => {
-     document.getElementById(formId).reset();
-  }
+    document.getElementById(formId).reset();
+  };
 
   const handleResponse = (response) => {
     setShowLoader(false);
@@ -70,7 +72,7 @@ export default function Contact() {
     setResponseMessage(response.message);
     setIsDisabled(true);
     resetForm();
-  }
+  };
 
   const sendMail = (data) => {
     setShowLoader(true);
@@ -87,7 +89,7 @@ export default function Contact() {
       redirect: "follow",
     };
 
-    fetch(process.env.REACT_APP_MAIL_API_URL+"mail/send", requestOptions)
+    fetch(process.env.REACT_APP_MAIL_API_URL + "mail/send", requestOptions)
       .then((response) => response.json())
       .then((result) => handleResponse(result))
       .catch((error) => console.log("error", error));
@@ -97,7 +99,7 @@ export default function Contact() {
     window.open(
       "mailto:ponchopdev@gmail.com?subject=Dev Question&body=Hi Poncho! I'd like to get more info about..."
     );
-  }
+  };
 
   const {
     register,
@@ -229,6 +231,11 @@ export default function Contact() {
         </Grid>
         <Grid item md />
       </Grid>
+      <p>
+        This site is inspired on the{" "}
+        <a href={bolbyTemplateUrl}>Bolby Template</a> but built from scratch
+        with React, Material-UI and love 💖
+      </p>
     </div>
   );
 }
