@@ -60,9 +60,7 @@ export default function About() {
     const classes = useStyles();
 
     const handleClick = () => {
-        window.open(
-          "https://drive.google.com/file/d/18aexmpiyUZGB4W7lGyX5Milq2rhqSFXg/view?usp=sharing"
-        );
+        window.open("https://resume.io/r/Nve8GcNVz");
     }
 
     return (
