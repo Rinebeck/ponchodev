@@ -1,7 +1,7 @@
 import ExpTimeline from "components/ExpTimeline"
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ExpIcon from "components/ExpIcon"
 import Paper from '@material-ui/core/Paper'
 import SectionTitle from "components/SectionTitle"
 
@@ -27,35 +27,44 @@ export default function Experience() {
     
     const classes = useStyles();
 
+    const LaptopIcon = <ExpIcon name='laptop-code' />;
+
     const jobs = [
         {
             title: 'Backend Web Developer',
             text: 'Kiubix',
             link: 'https://kiubix.mx/',
             time: '2016 - 2016',
-            icon: <FontAwesomeIcon icon={['fas', 'laptop-code']} color="#ff4c60" size="2x" />
+            icon: LaptopIcon
         },
         {
             title: 'Full-stack Web Developer',
             text: 'Zegucom Cómputo',
             link: 'https://www.zegucom.com.mx/',
             time: '2016 - 2018',
-            icon:  <FontAwesomeIcon icon={['fas', 'laptop-code']} color="#ff4c60" size="2x" />
+            icon: LaptopIcon
         },
         {
             title: 'Full-stack Web Developer',
             text: 'CEOS New Media Agency',
             link: 'https://ceosnewmedia.com/',
             time: '2018 - 2020',
-            icon:  <FontAwesomeIcon icon={['fas', 'laptop-code']} color="#ff4c60" size="2x" />
+            icon:  LaptopIcon
         },
         {
             title: 'Software Engineer',
             text: 'Wizeline',
             link: 'https://www.wizeline.com/',
-            time: '2020 - Present',
-            icon:  <FontAwesomeIcon icon={['fas', 'laptop-code']} color="#ff4c60" size="2x" />
+            time: '2020 - 2022',
+            icon:  LaptopIcon
         },
+      {
+            title: 'Software Engineer',
+            text: 'Etsy',
+            link: 'https://www.etsy.com/',
+            time: '2022 - Present',
+            icon:  LaptopIcon
+      },
     ];
 
     const freelance = [
@@ -64,14 +73,14 @@ export default function Experience() {
             text: 'Nafta Frigo',
             link: 'https://naftafrigo.mx/eng/',
             time: '2020',
-            icon:  <FontAwesomeIcon icon={['fab', 'wordpress']} color="#ff4c60" size="2x" />
+            icon:  <ExpIcon type='fab' name='wordpress' />
         },
         {
             title: 'WordPress Site',
             text: 'ClickClack',
             link: 'https://clickclack.mx/',
             time: '2020',
-            icon:  <FontAwesomeIcon icon={['fab', 'wordpress-simple']} color="#ff4c60" size="2x" />
+            icon:  <ExpIcon type='fab' name='wordpress' />
         },
         {
             title: 'PHP Yii2 Application',
@@ -79,14 +88,21 @@ export default function Experience() {
             link: '',
             customClass: 'php-icon',
             time: '2020',
-            icon:  <FontAwesomeIcon icon={['fab', 'php']} color="#ff4c60" size="2x" />
+            icon:  <ExpIcon type='fab' name='php' />
         },
         {
             title: 'React Application',
             text: 'Quarella Design',
             link: 'https://quarelladesign.com/',
             time: '2021',
-            icon:  <FontAwesomeIcon icon={['fab', 'react']} color="#ff4c60" size="2x" />
+            icon:  <ExpIcon type='fab' name='react' />
+        },
+        {
+            title: 'React / Symfony Application',
+            text: '1800Accountant',
+            link: 'https://1800accountant.com/',
+            time: '2022',
+            icon:  <ExpIcon type='fab' name='symfony' />
         },
     ];
 

@@ -63,6 +63,11 @@ export default function About() {
         window.open("https://resume.io/r/Nve8GcNVz");
     }
 
+    const cupsOfCoffee = Math.floor(Math.random() * (10000 - 1000) + 1000);
+    const linesOfCode = Math.floor(Math.random() * 100000) + 50000;
+    // generate random number between 500 and 5000
+    const bugsFixed = Math.floor(Math.random() * (5000 - 500) + 500);
+
     return (
       <div id="about" className={classes.root}>
         <SectionTitle title="About me" />
@@ -123,7 +128,7 @@ export default function About() {
           <Grid item md />
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={30}
+              value={32}
               duration={6}
               icon={"plus"}
               text={"Projects worked"}
@@ -131,7 +136,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={5892}
+              value={cupsOfCoffee}
               duration={4.5}
               icon={"mug-hot"}
               text={"Cups of coffee"}
@@ -139,7 +144,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={74325}
+              value={linesOfCode}
               duration={4}
               icon={"laptop-code"}
               text={"Lines of code"}
@@ -147,7 +152,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <CounterUp
-              value={637}
+              value={bugsFixed}
               duration={4.8}
               icon={"bug"}
               text={"Bugs fixed"}
